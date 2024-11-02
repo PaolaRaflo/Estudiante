@@ -1,0 +1,41 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #2e7d32;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #1b5e20;
+}
+
+.btn-danger {
+    background-color: #c62828;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #b71c1c;
+}
+
+a {
+    color: #1b5e20;
+}
+
+a:hover {
+    color: #004d40;
+}
+
+.form-text {
+    font-size: 0.85em;
+}

@@ -1,0 +1,31 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.card-img-left {
+    background-image: url('fondo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-success {
+    background-color: #2e7d32;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #1b5e20;
+}
+
+a {
+    color: #1b5e20;
+}
+
+a:hover {
+    color: #004d40;
+}
+
+#error-message {
+    font-size: 0.9em;
+    font-weight: bold;
+}

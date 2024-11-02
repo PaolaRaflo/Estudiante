@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Contraseña - Centro Pre Universitario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="validarC.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg" style="width: 400px;">
+            <div class="card-header text-center bg-success text-white">
+                <h5>RESTABLECER CONTRASEÑA</h5>
+            </div>
+            <div class="card-body text-center">
+                <img src="logo.png" alt="Logo CPU" width="50">
+                <h4 class="mt-2">Centro Pre Universitario</h4>
+                <form id="changePasswordForm" onsubmit="return validatePasswords()">
+                    <div class="form-group text-left">
+                        <label for="newPassword">Nueva contraseña:</label>
+                        <input type="password" class="form-control" id="newPassword" placeholder="Nueva contraseña">
+                        <small id="passwordHelp" class="form-text text-danger" style="display: none;">
+                            La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, un número y un carácter especial.
+                        </small>
+                    </div>
+                    <div class="form-group text-left">
+                        <label for="confirmPassword">Confirmar contraseña:</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar contraseña">
+                        <small id="confirmHelp" class="form-text text-danger" style="display: none;">
+                            Las contraseñas no coinciden.
+                        </small>
+                    </div>
+                    <div class="d-flex justify-content-around mt-4">
+                        <button type="submit" class="btn btn-success">CAMBIAR</button>
+                        <button type="button" class="btn btn-danger" onclick="window.location.href='login.html'">CANCELAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="ValidarC.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

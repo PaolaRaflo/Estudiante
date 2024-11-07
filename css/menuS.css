@@ -26,7 +26,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 180px;
 }
 
 .sidebar .navbar-brand {
@@ -41,8 +41,8 @@ body {
 
 .sidebar .nav-link {
     color: #ffffff;
-    font-size: 1.1em;
-    padding: 10px 20px;
+    font-size: 1em;
+    padding: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -56,7 +56,7 @@ body {
 /* Espaciado del contenido principal */
 .main-content {
     margin-top: 50px;
-    margin-left: 200px;
+    margin-left: 180px;
     height: calc(100vh - 100px);
     overflow-y: auto;
     padding: 20px;
@@ -86,23 +86,43 @@ body {
     height: 30px;
     position: fixed;
     bottom: 0;
-    left: 200px;
-    width: calc(100% - 200px);
+    left: 180px;
+    width: calc(100% - 180px);
     color: #555;
     font-size: 0.8em;
     padding: 5px 0;
 }
 
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        transition: all 0.3s ease;
+    }
+    .sidebar.collapse {
+        width: 180px;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .footer {
+        left: 0;
+        width: 100%;
+    }
+}
+
 /* Estilos para los íconos de la barra lateral */
 .sidebar-icon {
-    width: 30px; /* Ajusta el tamaño del icono según prefieras */
-    height: 30px;
-    margin-bottom: 5px; /* Espacio entre el icono y el nombre del módulo */
+    width: 20px; /* Ajusta el tamaño del icono */
+    height: 20px;
+    margin-bottom: 5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.nav-item div {
-    font-size: 0.9em; /* Ajusta el tamaño del texto debajo del icono */
+.nav-item span {
+    font-size: 0.85em; /* Ajusta el tamaño del texto debajo del icono */
+    margin-top: 5px;
 }

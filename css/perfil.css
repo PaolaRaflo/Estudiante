@@ -1,0 +1,19 @@
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ddd;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.text-primary {
+    color: #007bff;
+}

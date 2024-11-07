@@ -2,7 +2,7 @@ function validatePasswords() {
     const newPassword = document.getElementById('newPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    const passwordPattern = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     let valid = true;
 
     if (!passwordPattern.test(newPassword)) {
@@ -25,5 +25,5 @@ function validatePasswords() {
         valid = false;
     }
 
-    return valid;
+    return valid;
 }

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - CPU</title>
+    <title>Materiales - CPU</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/perfil.css">
-    <link rel="stylesheet" href="css/menuS.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" href="/css/menuS.css">
 </head>
 <body>
     <!-- Encabezado superior -->
@@ -44,7 +44,7 @@
             <nav id="sidebarMenu" class="col-md-2 bg-success sidebar collapse d-md-block">
                 <ul class="nav flex-column w-100">
                     <li class="nav-item text-center">
-                        <a class="nav-link text-white d-flex flex-column align-items-center" href="menu.html">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="/menu.html">
                             <box-icon name="home" color="white" size="sm" class="sidebar-icon"></box-icon>
                             <span>Inicio</span>
                         </a>
@@ -94,66 +94,79 @@
                 </ul>
             </nav>
 
-            <!-- Contenido principal del perfil -->
+            <!-- Contenido principal de Materiales -->
             <main role="main" class="col-md-10 ml-sm-auto px-4 pt-4">
                 <div class="container mt-5">
                     <div class="card">
-                        <div class="card-header bg-light text-dark">
-                            <h5><i class="bi bi-person"></i> PERFIL</h5>
+                        <div class="card-header bg-light text-dark d-flex align-items-center">
+                            <i class="bi bi-gear-fill mr-2"></i> 
+                            <h5 class="m-0">MATERIALES</h5>
                         </div>
                         <div class="card-body">
+                            <h6>Cursos</h6>
                             <div class="row">
-                                <div class="col-md-3 text-center">
-                                    <img src="img/perfil-icon.png" alt="Foto de Perfil" class="img-fluid" style="width: 80px;">
+                                <!-- Tarjetas de cursos, 3 por fila -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">GEOMETRÍA</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="GEOMETRÍA">INGRESAR</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-9">
-                                    <p><strong>Código:</strong> 75698086</p>
-                                    <p><strong>Nombres:</strong> Osmer</p>
-                                    <p><strong>Apellido Paterno:</strong> Padilla</p>
-                                    <p><strong>Apellido Materno:</strong> Mendo</p>
-                                    <p><strong>Nombre de Usuario:</strong> 75698086</p>
-                                    <p><strong>Tipo de Usuario:</strong> Alumno</p>
-                                    <a href="#" class="text-primary" data-toggle="modal" data-target="#modalCambiarContraseña">Cambiar Contraseña</a>
+                                <!-- Repetir para cada curso con su respectivo nombre en data-curso -->
+                                
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">PSICOLOGÍA</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="PSICOLOGÍA">INGRESAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">FÍSICA</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="FÍSICA">INGRESAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">ARITMÉTICA</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="ARITMÉTICA">INGRESAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">LENGUAJE</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="LENGUAJE">INGRESAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card course-card">
+                                        <div class="card-body text-center">
+                                            <h6 class="card-title">BIOLOGÍA</h6>
+                                            <p>Aula: B-01</p>
+                                            <button class="btn btn-success btn-ingresar" data-curso="BIOLOGÍA">INGRESAR</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
-
-    <!-- Modal para cambiar contraseña -->
-    <div class="modal fade" id="modalCambiarContraseña" tabindex="-1" aria-labelledby="modalCambiarContraseñaLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title" id="modalCambiarContraseñaLabel">Actualizar Contraseña</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="formCambiarContraseña" onsubmit="handlePasswordChange(event)">
-                        <div class="form-group">
-                            <label for="contraseñaActual">Contraseña Actual:</label>
-                            <input type="password" class="form-control" id="contraseñaActual" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nuevaContraseña">Nueva Contraseña:</label>
-                            <input type="password" class="form-control" id="nuevaContraseña" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmarContraseña">Confirmar Contraseña:</label>
-                            <input type="password" class="form-control" id="confirmarContraseña" required>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success">Aplicar</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -167,7 +180,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/Cursos/js/materiales.js"></script>
 
 </body>
 </html>

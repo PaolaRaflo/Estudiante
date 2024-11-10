@@ -2,13 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    height: 100vh;
 }
 
 /* Encabezado superior */
 .header {
     background-color: #f8f9fa;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -20,30 +21,50 @@ body {
 
 /* Barra lateral */
 .sidebar {
-    height: 100vh;
-    padding-top: 50px;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
     background-color: #2e7d32;
     position: fixed;
-    top: 0;
+    top: 50px; /* Comienza después del encabezado */
     left: 0;
-    width: 120px; /* Reduce el ancho de la barra lateral */
+    width: 120px;
+    padding-top: 10px; /* Ajuste para contenido dentro del sidebar */
+    z-index: 900; /* Asegura que esté por debajo del encabezado */
+    overflow: hidden; /* Evita scroll independiente en la barra lateral */
 }
 
-.sidebar .navbar-brand {
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Oculta el sidebar en dispositivos pequeños */
+        position: fixed;
+        top: 50px; /* Coloca debajo del encabezado */
+    }
+    
+    .sidebar.show {
+        transform: translateX(0); /* Muestra el sidebar cuando se activa */
+    }
+    
+    .d-md-none .btn-success {
+        position: fixed;
+        top: 60px; /* Ajusta este valor para mover el botón más abajo */
+        right: 15px;
+        z-index: 1050;
+    }
+}
+
+/* Botón de menú tipo hamburguesa */
+.menu-toggle {
+    background-color: #2e7d32;
+    border: none;
     color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 24px;
 }
 
-
+/* Estilos de los enlaces en el sidebar */
 .sidebar .nav-link {
     color: #ffffff;
-    font-size: 0.9em; /* Reduce el tamaño de la fuente */
-    padding: 8px; /* Reduce el espacio alrededor del texto */
+    font-size: 0.9em;
+    padding: 8px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -54,76 +75,22 @@ body {
     color: white;
 }
 
-/* Espaciado del contenido principal */
+/* Contenido principal */
 .main-content {
-    margin-top: 50px;
-    margin-left: 180px;
-    height: calc(100vh - 100px);
-    overflow-y: auto;
+    margin-top: 50px; /* Deja espacio para el navbar */
+    margin-left: 120px; /* Espacio para el sidebar */
     padding: 20px;
 }
 
-/* Información de usuario en el encabezado */
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.user-name {
-    font-weight: bold;
-    color: #333;
-}
-
-.user-role {
-    color: #dc3545;
-    font-size: 0.9em;
-    line-height: 1.2;
-}
-
-/* Footer */
+/* Ajustes para el footer */
 .footer {
-    background-color: #f8f9fa;
-    height: 25px; /* Reduce la altura del pie de página */
     position: fixed;
     bottom: 0;
     left: 120px; /* Ajusta para que coincida con el ancho de la barra lateral */
-    width: calc(100% - 120px); /* Ajusta el ancho de acuerdo al nuevo tamaño de la barra lateral */
+    width: calc(100% - 120px); /* Ajusta el ancho para no cubrir el footer */
     color: #555;
-    font-size: 0.75em; /* Reduce el tamaño de la fuente */
-    padding: 2px 0; /* Reduce el espacio interior del pie de página */
-}
-
-/* Estilos responsive */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 0;
-        transition: all 0.3s ease;
-    }
-    .sidebar.collapse {
-        width: 180px;
-    }
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-    .footer {
-        left: 0;
-        width: 100%;
-    }
-}
-
-/* Estilos para los íconos de la barra lateral */
-.sidebar-icon {
-    width: 20px; /* Ajusta el tamaño del icono */
-    height: 20px;
-    margin-bottom: 5px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.nav-item span {
-    font-size: 0.85em; /* Ajusta el tamaño del texto debajo del icono */
-    margin-top: 5px;
+    font-size: 0.75em;
+    padding: 2px 0;
+    background-color: #f8f9fa;
+    z-index: 1000; /* Asegura que el footer esté sobre el contenido */
 }

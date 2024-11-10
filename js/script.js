@@ -100,3 +100,8 @@ function handlePasswordChange(event) {
         }
     });
 }
+/*
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebarMenu");
+    sidebar.classList.toggle("collapse");
+}*/

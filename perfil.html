@@ -7,30 +7,167 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/menuS.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header bg-light text-dark">
-                <h5><i class="bi bi-person"></i> PERFIL</h5>
+    <!-- Encabezado superior -->
+    <header class="header d-flex justify-content-between align-items-center p-2 border-bottom">
+        <h1 class="h4 ml-3">Centro Pre Universitario</h1>
+        <div class="user-info d-flex align-items-center mr-3">
+            <i class="bi bi-bell mr-3"></i>
+            <div class="d-flex flex-column align-items-end">
+                <span class="user-name">MILI JOHANA PAIMA PAIMA</span>
+                <span class="user-role text-danger">Asistente de TI</span>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3 text-center">
-                        <img src="img/perfil-icon.png" alt="Foto de Perfil" class="img-fluid" style="width: 80px;">
+            <div class="dropdown">
+                <a href="#" data-toggle="dropdown" style="margin-left: 8px;">
+                    <img src="img/perfil-icon.png" alt="Perfil" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #333;">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="perfil.html">Ver Perfil</a>
+                    <a class="dropdown-item" href="index.html">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>        
+    </header>
+
+    <!-- Botón de menú para dispositivos pequeños -->
+    <div class="d-md-none text-right p-2">
+        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+        </button>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra Lateral -->
+            <nav id="sidebarMenu" class="col-md-2 bg-success sidebar collapse d-md-block">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="menu.html">
+                            <box-icon name="home" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="horario.html">
+                            <box-icon name="calendar" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Horario</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="cursos.html">
+                            <box-icon name="book" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Cursos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="examenes.html">
+                            <box-icon name="edit" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Exámenes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="calificaciones.html">
+                            <box-icon name="clipboard" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Calificaciones</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="asistencia.html">
+                            <box-icon name="id-card" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Asistencia</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="seguridad.html">
+                            <box-icon name="lock-alt" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Seguridad</span>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white d-flex flex-column align-items-center" href="mantenimiento.html">
+                            <box-icon name="wrench" color="white" size="sm" class="sidebar-icon"></box-icon>
+                            <span>Mantenimiento</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Contenido principal del perfil -->
+            <main role="main" class="col-md-10 ml-sm-auto px-4 pt-4">
+                <div class="container mt-5">
+                    <div class="card">
+                        <div class="card-header bg-light text-dark">
+                            <h5><i class="bi bi-person"></i> PERFIL</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <img src="img/perfil-icon.png" alt="Foto de Perfil" class="img-fluid" style="width: 80px;">
+                                </div>
+                                <div class="col-md-9">
+                                    <p><strong>Código:</strong> 75698086</p>
+                                    <p><strong>Nombres:</strong> Osmer</p>
+                                    <p><strong>Apellido Paterno:</strong> Padilla</p>
+                                    <p><strong>Apellido Materno:</strong> Mendo</p>
+                                    <p><strong>Nombre de Usuario:</strong> 75698086</p>
+                                    <p><strong>Tipo de Usuario:</strong> Alumno</p>
+                                    <a href="#" class="text-primary" data-toggle="modal" data-target="#modalCambiarContraseña">Cambiar Contraseña</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9">
-                        <p><strong>Código:</strong> 75698086</p>
-                        <p><strong>Nombres:</strong> Osmer</p>
-                        <p><strong>Apellido Paterno:</strong> Padilla</p>
-                        <p><strong>Apellido Materno:</strong> Mendo</p>
-                        <p><strong>Nombre de Usuario:</strong> 75698086</p>
-                        <p><strong>Tipo de Usuario:</strong> Alumno</p>
-                        <a href="cambiar_contraseña.html" class="text-primary">Cambiar Contraseña</a>
-                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para cambiar contraseña -->
+    <div class="modal fade" id="modalCambiarContraseña" tabindex="-1" aria-labelledby="modalCambiarContraseñaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="modalCambiarContraseñaLabel">Actualizar Contraseña</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCambiarContraseña" onsubmit="handlePasswordChange(event)">
+                        <div class="form-group">
+                            <label for="contraseñaActual">Contraseña Actual:</label>
+                            <input type="password" class="form-control" id="contraseñaActual" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nuevaContraseña">Nueva Contraseña:</label>
+                            <input type="password" class="form-control" id="nuevaContraseña" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmarContraseña">Confirmar Contraseña:</label>
+                            <input type="password" class="form-control" id="confirmarContraseña" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Aplicar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-3">
+        © 2023 Centro Pre Universitario. Todos los derechos reservados.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/script.js"></script>
+
 </body>
 </html>

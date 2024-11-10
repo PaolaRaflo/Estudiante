@@ -1,3 +1,4 @@
+// Función de validación de inicio de sesión
 function validateLogin() {
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
@@ -9,9 +10,13 @@ function validateLogin() {
             title: 'ADVERTENCIA!',
             text: 'Por favor, rellene todos los campos.',
             confirmButtonText: 'ACEPTAR',
-            confirmButtonColor: '#2e7d32'
+            confirmButtonColor: '#4CAF50', 
+            customClass: {
+                popup: 'custom-swal-popup',
+                confirmButton: 'custom-swal-button'
+            }
         });
-        return false; // Evita el envío del formulario
+        return false; 
     }
 
     // Credenciales correctas
@@ -24,7 +29,11 @@ function validateLogin() {
             icon: 'success',
             title: 'Inicio de sesión exitoso',
             confirmButtonText: 'Aceptar',
-            confirmButtonColor: '#2e7d32'
+            confirmButtonColor: '#4CAF50',
+            customClass: {
+                popup: 'custom-swal-popup',
+                confirmButton: 'custom-swal-button'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = 'menu.html';
@@ -32,34 +41,62 @@ function validateLogin() {
         });
         return false;
     } else {
-        // Muestra el mensaje de advertencia si las credenciales no coinciden
         Swal.fire({
             icon: 'warning',
             title: 'ADVERTENCIA!',
             text: 'Usuario y/o Contraseña incorrecta',
             confirmButtonText: 'ACEPTAR',
-            confirmButtonColor: '#2e7d32'
+            confirmButtonColor: '#4CAF50',
+            customClass: {
+                popup: 'custom-swal-popup',
+                confirmButton: 'custom-swal-button'
+            }
         });
         return false;
     }
 }
+// Función de manejo de cambio de contraseña
+function handlePasswordChange(event) {
+    event.preventDefault();
 
-function toggleProfileMenu() {
-    const profileMenu = document.getElementById('profileMenu');
-    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
-}
+    const currentPassword = document.getElementById('contraseñaActual').value.trim();
+    const newPassword = document.getElementById('nuevaContraseña').value.trim();
+    const confirmPassword = document.getElementById('confirmarContraseña').value.trim();
 
-// Cierra el menú al hacer clic fuera de él
-window.onclick = function(event) {
-    const profileMenu = document.getElementById('profileMenu');
-    if (!event.target.matches('.profile-icon')) {
-        profileMenu.style.display = 'none';
+    // Validar que los campos no estén vacíos
+    if (currentPassword === '' || newPassword === '' || confirmPassword === '') {
+        Swal.fire({
+            icon: 'warning',
+            title: 'ADVERTENCIA!',
+            text: 'Por favor, complete todos los campos.',
+            confirmButtonText: 'ACEPTAR',
+            confirmButtonColor: '#4CAF50'
+        });
+        return;
     }
-};
 
-// Función de cerrar sesión
-function logout() {
-    // Aquí puedes añadir lógica adicional para el cierre de sesión si es necesario
-    window.location.href = 'index.html';
+    // Validar que las nuevas contraseñas coincidan
+    if (newPassword !== confirmPassword) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'ADVERTENCIA!',
+            text: 'Las contraseñas no coinciden',
+            confirmButtonText: 'ACEPTAR',
+            confirmButtonColor: '#4CAF50'
+        });
+        return;
+    }
+
+    // Simulación de cambio de contraseña exitoso
+    Swal.fire({
+        icon: 'success',
+        title: 'Contraseña actualizada correctamente',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#4CAF50'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $('#modalCambiarContraseña').modal('hide');
+            window.location.href = 'perfil.html';
+        }
+    });
 }
-

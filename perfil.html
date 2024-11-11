@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/menuS.css">
 </head>
-<body>
+<body onload="checkAuthentication()">
     <!-- Encabezado superior -->
     <header class="header d-flex justify-content-between align-items-center p-2 border-bottom">
         <h1 class="h4 ml-3">Centro Pre Universitario</h1>
@@ -168,6 +168,11 @@
     <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/script.js"></script>
+    <script>
+        function toggleSidebar() {
+            $('#sidebarMenu').toggleClass('show');
+        }
+    </script>
 
 </body>
 </html>

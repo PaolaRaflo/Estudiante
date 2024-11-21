@@ -12,7 +12,7 @@
 <body>
     <!-- Encabezado superior -->
     <header class="header d-flex justify-content-between align-items-center p-2 border-bottom">
-        <h1 class="h4 ml-3">Centro Pre Universitario</h1>
+        <h1 class="h4 ml-3"></h1>
         <div class="user-info d-flex align-items-center mr-3">
             <i class="bi bi-bell mr-3"></i>
             <div class="d-flex flex-column align-items-end">
@@ -172,5 +172,30 @@
             }
         }
     </script>
+        <script src="js/script.js"></script>
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                const mainContent = document.querySelector('.main-content');
+                const toggleButton = document.querySelector('.btn-toggle-sidebar');
+    
+                sidebar.classList.toggle('hidden');
+                if (sidebar.classList.contains('hidden')) {
+                    toggleButton.style.left = '10px';
+                } else {
+                    toggleButton.style.left = '210px';
+                }
+            }
+    
+            // Detectar el cambio de tamaño de la ventana
+            window.addEventListener('resize', () => {
+                const sidebar = document.querySelector('.sidebar');
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.add('hidden');
+                } else {
+                    sidebar.classList.remove('hidden');
+                }
+            });
+        </script>
 </body>
 </html>

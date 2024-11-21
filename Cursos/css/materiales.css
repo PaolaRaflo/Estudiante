@@ -20,6 +20,7 @@ body {
     padding: 20px;
 }
 
+/* Sidebar */
 .sidebar {
     background-color: #2e7d32;
     height: 100vh;
@@ -27,18 +28,36 @@ body {
     top: 0;
     left: 0;
     padding-top: 50px;
-    width: 120px;
+    width: 180px;
 }
 
+/* Tarjetas de curso */
 .course-card {
     border: 1px solid #ddd;
     padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #f0f0f0;
 }
 
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #e0e0e0;
+}
+
+.course-card .card-body {
+    padding: 20px;
+}
+
+.container {
+    max-width: 100%;
+}
+
+/* Footer */
 .footer {
     background-color: #f8f9fa;
     font-size: 0.75em;
-    padding: 2px 0;
+    padding: 10px 0;
     text-align: center;
     color: #555;
 }
@@ -47,28 +66,19 @@ body {
     font-size: 0.9em;
 }
 
-.file-entry {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
+/* Responsividad */
+@media (max-width: 768px) {
+    .course-card {
+        margin: 0 auto;
+        width: 90%;
+    }
 
-.file-entry i {
-    font-size: 1.5rem;
-    margin-right: 10px;
-}
-
-.card-header h5 {
-    font-weight: bold;
-}
-
-.btn-link {
-    text-decoration: none;
-    font-weight: bold;
-    color: #007bff;
-}
-
-.btn-link:hover {
-    color: #0056b3;
+    .sidebar {
+        width: 100%;
+        position: relative;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
 }

@@ -1,96 +1,104 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    overflow-x: hidden;
-    height: 100vh;
-}
-
-/* Encabezado superior */
-.header {
-    background-color: #f8f9fa;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 50px;
-    display: flex;
-    align-items: center;
-}
-
 /* Barra lateral */
 .sidebar {
+    position: fixed;
+    top: 0; /* Comienza desde el borde superior */
+    left: 0;
+    width: 200px; /* Ancho de la barra lateral */
     height: 100vh; /* Ocupa toda la altura de la pantalla */
     background-color: #2e7d32;
+    z-index: 1050; /* Asegura que esté encima de todo */
+    overflow-y: auto; /* Scroll interno si hay demasiados módulos */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ocultar barra lateral al dar click en el botón */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Botón para alternar la barra lateral */
+.btn-toggle-sidebar {
     position: fixed;
-    top: 50px; /* Comienza después del encabezado */
-    left: 0;
-    width: 120px;
-    padding-top: 10px; /* Ajuste para contenido dentro del sidebar */
-    z-index: 900; /* Asegura que esté por debajo del encabezado */
-    overflow: hidden; /* Evita scroll independiente en la barra lateral */
-}
-
-/* Estilos responsive */
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%); /* Oculta el sidebar en dispositivos pequeños */
-        position: fixed;
-        top: 50px; /* Coloca debajo del encabezado */
-    }
-    
-    .sidebar.show {
-        transform: translateX(0); /* Muestra el sidebar cuando se activa */
-    }
-    
-    .d-md-none .btn-success {
-        position: fixed;
-        top: 60px; /* Ajusta este valor para mover el botón más abajo */
-        right: 15px;
-        z-index: 1050;
-    }
-}
-
-/* Botón de menú tipo hamburguesa */
-.menu-toggle {
+    top: 15px; /* Alineado con el navbar */
+    left: 210px; /* Ubicación junto a la barra lateral */
+    z-index: 1100;
     background-color: #2e7d32;
+    color: white;
     border: none;
-    color: white;
-    font-size: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Estilos de los enlaces en el sidebar */
-.sidebar .nav-link {
-    color: #ffffff;
-    font-size: 0.9em;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.sidebar .nav-link:hover {
-    background-color: #1b5e20;
-    color: white;
+.sidebar.hidden + .btn-toggle-sidebar {
+    left: 10px;
 }
 
 /* Contenido principal */
 .main-content {
-    margin-top: 50px; /* Deja espacio para el navbar */
-    margin-left: 120px; /* Espacio para el sidebar */
+    margin-left: 200px; /* Espacio reservado para la barra lateral */
     padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
 }
 
-/* Ajustes para el footer */
+.sidebar.hidden ~ .main-content {
+    margin-left: 0;
+}
+
+/* Estilo para los íconos y texto de los módulos */
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    font-size: 1.2em; /* Tamaño de los íconos */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #1b5e20;
+}
+
+/* Footer siempre abajo 
 .footer {
     position: fixed;
     bottom: 0;
-    left: 120px; /* Ajusta para que coincida con el ancho de la barra lateral */
-    width: calc(100% - 120px); /* Ajusta el ancho para no cubrir el footer */
-    color: #555;
-    font-size: 0.75em;
-    padding: 2px 0;
+    width: 100%;
     background-color: #f8f9fa;
-    z-index: 1000; /* Asegura que el footer esté sobre el contenido */
+    padding: 10px;
+    color: #555;
+    text-align: center;
+    z-index: 1000;
+}
+*/
+/* Footer responsivo */
+.footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    color: #555;
+    width: calc(100% - 200px); /* Ajusta el ancho cuando la barra lateral está visible */
+    margin-left: 200px; /* Desplazamiento cuando la barra lateral está visible */
+    position: fixed;
+    bottom: 0;
+    transition: margin-left 0.3s ease, width 0.3s ease; /* Transición fluida */
+}
+
+.sidebar.hidden ~ .footer {
+    width: calc(100% - 10px); /* Expande el footer cuando la barra lateral está oculta */
+    margin-left: 10px; /* Ajusta el margen cuando la barra lateral está oculta */
+}
+
+/* Responsividad del footer */
+@media (max-width: 768px) {
+    .footer {
+        width: calc(100% - 10px); /* Ajusta el ancho en pantallas pequeñas */
+        margin-left: 10px;
+    }
 }

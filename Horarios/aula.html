@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materiales - CPU</title>
+    <title>Aula - CPU</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/menuS.css">
-    <link rel="stylesheet" href="materiales.css">
+    <link rel="stylesheet" href="aula.css">
 </head>
 <body>
     <!-- Encabezado superior -->
     <header class="header d-flex justify-content-between align-items-center p-2 border-bottom">
-        <h1 class="h4 ml-3"></h1>
+        <h1 class="h4 ml-3">Centro Pre Universitario</h1>
         <div class="user-info d-flex align-items-center mr-3">
             <i class="bi bi-bell mr-3"></i>
             <div class="d-flex flex-column align-items-end">
@@ -40,12 +40,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Horarios/horario.html">
+                <a class="nav-link" href="horario.html">
                     <i class="bi bi-calendar3"></i> Horario
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="materiales.html">
+                <a class="nav-link" href="../materiales.html">
                     <i class="bi bi-book-half"></i> Materiales
                 </a>
             </li>
@@ -83,9 +83,57 @@
     <!-- Contenido principal -->
     <main class="main-content">
         <div class="container mt-4">
-            <h3 class="text-center">CURSOS</h3>
-            <div id="course-container" class="row mt-3">
-                <!-- Cursos cargados dinámicamente -->
+            <!-- Botón de Volver -->
+            <a href="horario.html" class="back-button">
+                <i class="bi bi-arrow-left"></i> AULAS
+            </a>
+            <h3 id="aula-title" class="text-center">Aula: A-01</h3>
+
+            <!-- Tabla de horarios -->
+            <div class="mt-4">
+                <h4>Listado de Horarios</h4>
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Turno</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Operaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Horario A-01</td>
+                            <td>Mañana</td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="estado1" checked>
+                                    <label class="custom-control-label" for="estado1">Activo</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Horario A-01</td>
+                            <td>Tarde</td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="estado2" checked>
+                                    <label class="custom-control-label" for="estado2">Activo</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success float-right"><i class="bi bi-plus"></i> Nuevo Horario</button>
             </div>
         </div>
     </main>
@@ -98,29 +146,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/Materiales/materiales.js"></script>
-    <script src="js/script.js"></script>
     <script>
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            const mainContent = document.querySelector('.main-content');
-            const toggleButton = document.querySelector('.btn-toggle-sidebar');
-
-            sidebar.classList.toggle('hidden');
-            if (sidebar.classList.contains('hidden')) {
-                toggleButton.style.left = '10px';
-            } else {
-                toggleButton.style.left = '210px';
-            }
-        }
-
-        // Detectar el cambio de tamaño de la ventana
-        window.addEventListener('resize', () => {
-            const sidebar = document.querySelector('.sidebar');
-            if (window.innerWidth <= 768) {
-                sidebar.classList.add('hidden');
-            } else {
-                sidebar.classList.remove('hidden');
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const aulaName = urlParams.get("aula");
+            if (aulaName) {
+                document.getElementById("aula-title").textContent = `Aula: ${aulaName}`;
             }
         });
     </script>

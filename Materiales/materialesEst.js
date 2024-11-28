@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 const courses = [
     { name: "ÁLGEBRA", area: "Ciencias" },
     { name: "ARITMÉTICA", area: "Ciencias" },
@@ -36,11 +35,13 @@ function loadCourses() {
 
     courses.forEach((course) => {
         html += `
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card text-center shadow-sm">
-                    <div class="card-body">
-                        <h6 class="card-title">${course.name}</h6>
-                        <a href="curso.html?course=${encodeURIComponent(course.name)}" class="btn btn-sm btn-success">INGRESAR</a>
+            <div class="col-md-4 col-sm-6 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-0">${course.name}</h6>
+                        </div>
+                        <a href="cursosEst.html?course=${encodeURIComponent(course.name)}" class="btn btn-sm btn-success">INGRESAR</a>
                     </div>
                 </div>
             </div>

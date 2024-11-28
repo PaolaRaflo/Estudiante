@@ -1,0 +1,185 @@
+/* Barra lateral */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Ajuste para que el menú esté debajo del encabezado */
+    left: 0;
+    width: 200px;
+    height: calc(100vh - 60px); /* Reducir la altura para compensar el margen superior */
+    background-color: #2e7d32;
+    z-index: 1050;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Botón para alternar la barra lateral */
+.btn-toggle-sidebar {
+    position: fixed;
+    top: 70px; /* Ajuste para que el botón esté alineado con el menú */
+    left: 210px; /* Posición lateral */
+    z-index: 1100;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar.hidden + .btn-toggle-sidebar {
+    left: 10px;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar.hidden ~ .main-content {
+    margin-left: 0;
+}
+
+/* Estilo para los íconos y texto de los módulos */
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #1b5e20;
+}
+
+/* Footer siempre abajo */
+.footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    color: #555;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    position: fixed;
+    bottom: 0;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.hidden ~ .footer {
+    width: calc(100% - 10px);
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        width: calc(100% - 10px);
+        margin-left: 10px;
+    }
+}
+
+
+
+.card {
+    background-color: #f5f5f5; /* Fondo gris claro */
+    border: 1px solid #d6d6d6; /* Borde sutil */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto flotante */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02); /* Efecto de agrandamiento al pasar el mouse */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Más sombra al pasar el mouse */
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Botón de comenzar */
+.card .btn {
+    background-color: #2e7d32;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card .btn:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* Modal personalizado */
+.modal-content {
+    border-radius: 0px; /* Bordes rectos */
+    border: none; /* Sin bordes predeterminados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Fondo degradado */
+    padding: 20px;
+}
+
+.modal-header {
+    background-color: #2e7d32; /* Verde del encabezado */
+    color: #ffffff;
+    border-bottom: 2px solid #1b5e20; /* Línea de separación */
+    padding: 10px 20px;
+    font-size: 1.2rem; /* Tamaño ligeramente reducido */
+    font-weight: 500; /* Peso de fuente menos grueso */
+    border-radius: 0px; /* Bordes rectos */
+}
+
+.modal-title {
+    font-size: 1.2rem; /* Tamaño ligeramente más pequeño */
+    font-weight: 500; /* Peso más ligero */
+    margin: 0;
+}
+
+.modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+    padding: 20px 10px;
+    text-align: justify; /* Alineación justificada */
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+    text-align: justify; /* Asegura que los párrafos también estén justificados */
+}
+
+.modal-body a {
+    color: #2e7d32;
+    font-weight: 500; /* Peso de fuente más ligero */
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-align: left; /* Alinea los enlaces a la izquierda */
+}
+
+.modal-body a:hover {
+    color: #1b5e20;
+}
+
+/* Ocultar el footer del modal */
+.modal-footer {
+    display: none;
+}
